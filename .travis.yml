@@ -1,0 +1,3 @@
+language: go
+install: echo "pretending to install"
+script: mkdir back_end/target; go build -o back_end/target/gilbert back_end/main.go

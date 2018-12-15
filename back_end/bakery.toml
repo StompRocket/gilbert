@@ -1,0 +1,6 @@
+[main]
+#from = ["get"]
+do = "go build -o target/gilbert main.go"
+
+[get]
+do = "go get"
