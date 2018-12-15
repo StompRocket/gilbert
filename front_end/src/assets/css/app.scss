@@ -1,9 +1,13 @@
 @import "vars";
+
+
 .game {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 0.9fr 1fr;
   justify-items: center;
+
+
   .swipeBox {
     width: 90vw;
     height: 90vw;
