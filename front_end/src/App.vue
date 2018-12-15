@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="page">
 
     <router-view/>
   </div>
@@ -7,7 +7,8 @@
 
 <script>
   import 'minireset.css'
+  import '@/assets/css/global.scss'
   export default {
-    name: 'app'
+    name: 'appContainer'
   }
 </script>
