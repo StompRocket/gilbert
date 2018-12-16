@@ -16,7 +16,7 @@
     mounted() {
       let el = document.getElementById('swipeBox');
 
-      swipe(el, (dir: Number) => {
+      swipe(el, (dir: number) => {
         // dir contains the integer direction of the swipe
         console.log(dir)
         if ( dir > 0 ) {

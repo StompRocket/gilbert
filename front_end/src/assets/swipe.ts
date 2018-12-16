@@ -1,19 +1,19 @@
-const swipe = (element, callback) => {
+const swipe = (element: HTMLElement, callback) => {
   
   let touchsurface = element,
   dir = -1,
-  startX: Number,
-  startY: Number,
-  distX: Number,
-  distY: Number,
+  startX: number,
+  startY: number,
+  distX: number,
+  distY: number,
   threshold = 200, // smallest distance for swipe to register
   restraint = 120, // maximum deviation for swipt to register
   allowedTime = 300, // maximum time allowed
   elapsedTime, // some time thing I don't know the type name
-  startTime,
-  handleswipe = callback || function(dir){}
+  startTime: number,
+  handleswipe = callback || function(){}
   
-  touchsurface.addEventListener('touchstart', e => {
+  touchsurface.addEventListener('touchstart', (e: any) => {
     var touchobj = e.changedTouches[0]
     dir = -1
     startX = touchobj.pageX
@@ -21,12 +21,12 @@ const swipe = (element, callback) => {
     startTime = new Date().getTime() // start time
     e.preventDefault()
   }, false)
-  
-  touchsurface.addEventListener('touchmove', e => {
+
+  touchsurface.addEventListener('touchmove', (e: any) => {
     e.preventDefault() // Don't scroll n' stuf
   }, false)
   
-  touchsurface.addEventListener('touchend', function(e){
+  touchsurface.addEventListener('touchend', function(e: any){
     var touchobj = e.changedTouches[0]
     // delta X
     distX = touchobj.pageX - startX
