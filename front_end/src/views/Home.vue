@@ -1,6 +1,8 @@
 <template>
   <div class="game page">
-    <div class="gameBox"></div>
+    <div class="gameBox">
+      <p>{{console}}</p>
+    </div>
     <div class="swipeBox" id="swipeBox"></div>
 
   </div>
@@ -13,12 +15,18 @@
 
   export default Vue.extend({
     name: 'home',
+    data() {
+      return {
+        console: null
+      }
+    },
     mounted() {
       let el = document.getElementById('swipeBox');
 
       swipe(el, (dir: number) => {
         // dir contains the integer direction of the swipe
         console.log(dir)
+        this.console = dir;
         if ( dir > 0 ) {
           el.innerHTML = '<span class="result">' + dir +'</span>'
         } else {
