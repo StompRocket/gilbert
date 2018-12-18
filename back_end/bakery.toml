@@ -1,6 +1,11 @@
 [main]
-#from = ["get"]
+from = ["get"]
 do = "go build -o target/gilbert main.go"
 
 [get]
-do = "go get"
+do = """go get github.com/StompRocket/yurt\
+"""
+
+[serve]
+from = ["main"]
+do = "target/gilbert"

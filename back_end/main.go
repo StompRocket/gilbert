@@ -1,7 +1,11 @@
 package main
 
 import (
-	"./box"
+	"github.com/StompRocket/yurt"
+	"strconv"
+	"strings"
+	"os"
+	"fmt"
 )
 
 const (
@@ -9,5 +13,18 @@ const (
 )
 
 func main() {
-	box.Box("gilbert server v" + version + " starting on :7777")
+
+	var p yurt.Parser
+
+	p.Command("$d", "Provide port to serve on", func(matches []string) {
+		port, err := strconv.Atoi(strings.Trim(matches[0], " \t\n"))
+		if err != nil {
+			panic("Error parsing port to int")
+		}
+
+		yurt.Box(fmt.Sprintf("Gilbert v%s running on :%d", version, port), "")
+		
+	})
+
+	p.Run(os.Args)
 }
